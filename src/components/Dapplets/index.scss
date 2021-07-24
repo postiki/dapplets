@@ -1,0 +1,57 @@
+.dapplets {
+
+  width: 1100px;
+
+  background: linear-gradient(180deg, rgba(185, 251, 255, 0.2) 0%, rgba(227, 220, 255, 0.2) 100%);
+  backdrop-filter: blur(30px);
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+
+    margin: 20px 0px;
+
+    width: 1060px;
+
+    select, input {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), rgba(255, 255, 255, 0.8);
+      box-shadow: 10px 10px 40px rgba(156, 185, 222, 0.36);
+      border-radius: 10px;
+
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 19px;
+    }
+
+    .search {
+      width: 600px;
+      height: 40px;
+
+      color: #BBBBBB;
+
+      background: url("../../icons/search.svg") no-repeat scroll 10px 12px;
+      padding-left: 36px;
+    }
+
+    .sortByFirst {
+      width: 210px;
+      height: 40px;
+
+      flex: none;
+      order: 1;
+      flex-grow: 0;
+      margin: 0px 20px;
+    }
+
+    .sortBySecond {
+      width: 210px;
+      height: 40px;
+
+      flex: none;
+      order: 2;
+      flex-grow: 0;
+      margin: 0px 20px;
+    }
+  }
+}
