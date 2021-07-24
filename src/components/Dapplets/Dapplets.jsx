@@ -1,9 +1,12 @@
 import React, {useEffect, useState} from 'react';
+import useDebounce from './use-debounced';
+
 import axios from "axios";
 
 import './index.scss'
 
 import Item from "../Item/Item";
+
 
 export default function Dapplets () {
 
@@ -14,7 +17,16 @@ export default function Dapplets () {
     const [startPage, setStartPages] = useState(0);
     const [limitPage, setLimitPages] = useState(10);
 
-    const [inputValue, setInpitValue] = useState('')
+    const [inputValue, setInputValue] = useState('')
+
+    const [sortByType, setSortByType] = useState('')
+    const [sortTo, setSortTo] = useState('')
+
+    const [results, setResults] = useState([]);
+    const [isSearching, setIsSearching] = useState(false);
+
+    const debouncedSearchTerm = useDebounce(inputValue, 500);
+
 
     window.onload = () => {
         axios.get('https://dapplets-hiring-api.herokuapp.com/api/v1/dapplets?start=0&limit=10')
@@ -46,18 +58,46 @@ export default function Dapplets () {
         }
     }
 
-    const fillterData = dataItems.filter(items => {
-        return items.title.toLowerCase().includes(inputValue.toLowerCase())
-    })
+
+    useEffect(
+        () => {
+            if (debouncedSearchTerm) {
+                setIsSearching(true);
+                searchCharacters(debouncedSearchTerm).then(response => {
+                    setIsSearching(false);
+                    setResults(response);
+                });
+            } else {
+                setResults([]);
+            }
+        },
+        [debouncedSearchTerm]
+    );
+
+
+    function searchCharacters(search) {
+        return (
+            axios.get('https://dapplets-hiring-api.herokuapp.com/api/v1/dapplets?start=0&limit=10&filter=[{"property":"title","value":"' + `${search}` + '"}]')
+                .then((response) => response.data.data)
+        )
+    }
 
     return (
         <div className='dapplets'>
             <div className='header'>
-                <input className='search' placeholder='Search' onChange={(e) => setInpitValue(e.target.value)}/>
-                <button className='sortByFirst' />
-                <button className='sortBySecond'/>
+                <input className='search' placeholder='Search' onChange={(e) => setInputValue(e.target.value)}/>
+                <select className='sortByFirst' onChange={(e) => setSortByType(e.target.value)}>
+                    <option value='released'>Released Date</option>
+                    <option value='rating'>Rating</option>
+                    <option value='downloads'>Downloads</option>
+                </select>
+                <select className='sortBySecond'>
+                    <option value='DESC'>Descending</option>
+                    <option value='ASC'>Ascending</option>
+                </select>
             </div>
-            {showDataItems && <Item dataItems={fillterData}/>}
+            {isSearching && <div>Searching ...</div>}
+            {showDataItems && <Item dataItems={results.length > 1 ? results : dataItems}/>}
         </div>
     )
 }
