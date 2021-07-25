@@ -8,7 +8,7 @@ import './index.scss'
 import Item from "../Item/Item";
 
 
-export default function Dapplets () {
+export default function Dapplets() {
 
     const [dataItems, setDataItems] = useState([]);
     const [showDataItems, setShowDataItems] = useState('');
@@ -34,7 +34,7 @@ export default function Dapplets () {
             .finally(() => setShowDataItems(true))
     }
 
-    useEffect( () => {
+    useEffect(() => {
         if (fetching) {
             axios.get('https://dapplets-hiring-api.herokuapp.com/api/v1/dapplets?start=' + `${startPage}` + '&limit=' + `${limitPage}`)
                 .then((response) => {
@@ -43,7 +43,7 @@ export default function Dapplets () {
                 .then(() => setStartPages(prevState => prevState + 5))
                 .finally(() => setFetching(false))
         }
-    },[fetching] )
+    }, [fetching])
 
     useEffect(() => {
         document.addEventListener('scroll', scroll)
@@ -53,7 +53,7 @@ export default function Dapplets () {
     }, [])
 
     let scroll = (e) => {
-        if(e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100) {
+        if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100) {
             setFetching(true)
         }
     }
@@ -77,10 +77,11 @@ export default function Dapplets () {
 
     function searchCharacters(search) {
         return (
-            axios.get('https://dapplets-hiring-api.herokuapp.com/api/v1/dapplets?start=0&limit=10&filter=[{"property":"title","value":"' + `${search}` + '"}]')
+            axios.get('https://dapplets-hiring-api.herokuapp.com/api/v1/dapplets?start=0&limit=15&filter=[{"property":"title","value":"' + `${search}` + '"}]')
                 .then((response) => response.data.data)
         )
     }
+
 
     return (
         <div className='dapplets'>
