@@ -63,9 +63,9 @@ export default function Dapplets() {
         () => {
             if (debouncedSearchTerm) {
                 setIsSearching(true);
-                searchCharacters(debouncedSearchTerm).then(response => {
+                searchCharacters(debouncedSearchTerm).then(data => {
                     setIsSearching(false);
-                    setResults(response);
+                    setResults(data)
                 });
             } else {
                 setResults([]);
@@ -79,6 +79,7 @@ export default function Dapplets() {
         return (
             axios.get('https://dapplets-hiring-api.herokuapp.com/api/v1/dapplets?start=0&limit=15&filter=[{"property":"title","value":"' + `${search}` + '"}]')
                 .then((response) => response.data.data)
+                .then(data => data.filter(item => item.title.toLowerCase().includes(inputValue.toLowerCase())))
         )
     }
 
@@ -98,7 +99,7 @@ export default function Dapplets() {
                 </select>
             </div>
             {isSearching && <div>Searching ...</div>}
-            {showDataItems && <Item dataItems={results.length > 1 ? results : dataItems}/>}
+            {showDataItems && <Item dataItems={results.length >= 1 ? results : dataItems}/>}
         </div>
     )
 }
