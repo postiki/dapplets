@@ -1,18 +1,67 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 
 import btn from "../../icons/Group 14.svg";
+import close from '../../icons/closeBtnTags.svg'
 
 import './index.scss'
+
 
 export default function Item({dataItems}) {
 
     const [showInfo, setShowInfo] = useState(false)
 
+    let tag = [
+        {
+            "id": "0",
+            "name": "Games"
+        },
+        {
+            "id": "1",
+            "name": "Twitter"
+        },
+        {
+            "id": "2",
+            "name": "Social Media"
+        },
+        {
+            "id": "3",
+            "name": "Top 10"
+        },
+        {
+            "id": "4",
+            "name": "Finances"
+        },
+        {
+            "id": "5",
+            "name": "Media"
+        },
+        {
+            "id": "6",
+            "name": "Test"
+        },
+        {
+            "id": "7",
+            "name": "ToDo"
+        }]
+
+    let saveStateBtn = (props) => {
+
+        if (localStorage.getItem(props)) {
+            localStorage.removeItem(props)
+        } else {
+            localStorage.setItem(props, 'install')
+        }
+    }
+
+    useEffect(() => {
+
+    })
+
     return (
         dataItems.map((items, index) => {
             return (
-                <div className='item' key={index} onClick={() => setShowInfo(!showInfo)}>
+                <div className='item' key={index} >
                     <img className='drag-btn' alt='drag-btn' src={btn}/>
                     <img className='icon' alt='icons'
                          src={' https://dapplets-hiring-api.herokuapp.com/api/v1/files/' + items.icon}/>
@@ -22,8 +71,17 @@ export default function Item({dataItems}) {
                     </div>
                     <p className='description'>{items.description}</p>
                     <p className='author'>{items.author}</p>
-                    <p className='tags'>{items.tags}</p>
-                    <button>install</button>
+                    <p className='tags'>
+                        {items.tags.map((props, index) => {
+                            return (
+                                <div className='label' key={index}>
+                                    <p>{tag.filter(o => o.id.includes(props))[0]?.name}</p>
+                                    <img src={close}/>
+                                </div>
+                            )
+                        })}
+                    </p>
+                    <button className={localStorage.getItem(items.id)} onClick={() => saveStateBtn(items.id)}>INSTALL</button>
                     {showInfo && <div className='moreInfo'>
                         <div className='a'>
                             <p className='text_1'>Aliquam sit</p>

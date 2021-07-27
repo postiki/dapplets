@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import useDebounce from './use-debounced';
-
 import axios from "axios";
 
 import './index.scss'
@@ -15,7 +14,7 @@ export default function Dapplets() {
     const [fetching, setFetching] = useState('true');
 
     const [startPage, setStartPages] = useState(0);
-    const [limitPage, setLimitPages] = useState(10);
+    const [limitPage, setLimitPages] = useState(1);
 
     const [inputValue, setInputValue] = useState('')
 
@@ -28,17 +27,10 @@ export default function Dapplets() {
     const debouncedSearchTerm = useDebounce(inputValue, 500);
 
     useEffect(() => {
-        axios.get(`https://dapplets-hiring-api.herokuapp.com/api/v1/dapplets?start=0&limit=10&sort=[{"property": "${sortByType}", "direction": "${sortTo}"}]`)
+        axios.get(`https://dapplets-hiring-api.herokuapp.com/api/v1/dapplets?start=${startPage}&limit=${limitPage}&sort=[{"property": "${sortByType}", "direction": "${sortTo}"}]`)
             .then(response => setDataItems(response.data.data))
             .finally(() => setShowDataItems(true))
-    }, [sortByType])
-
-    useEffect(() => {
-        if (sortTo){
-            axios.get(`https://dapplets-hiring-api.herokuapp.com/api/v1/dapplets?start=0&limit=10&sort=[{"property": "${sortByType}", "direction": "${sortTo}"}]`)
-                .then(response => setDataItems(response.data.data))
-        }
-    }, [sortTo])
+    }, [sortByType, sortTo])
 
 
     useEffect(() => {
@@ -72,7 +64,6 @@ export default function Dapplets() {
                 setIsSearching(true);
                 searchDapplets(debouncedSearchTerm).then(data => {
                     setIsSearching(false);
-                    console.log(data)
                     setResults(data)
                 });
             } else {

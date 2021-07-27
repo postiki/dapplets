@@ -8,9 +8,6 @@ function App() {
 
   return (
     <div className="App">
-        <div className='loader'>
-
-        </div>
         <Dapplets />
     </div>
   );

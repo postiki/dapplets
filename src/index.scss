@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
 }
 
 body,
@@ -25,7 +26,7 @@ dd {
   padding: 0;
 }
 
-input, select
+input, select, button
 {
   padding: 0;
   margin: 0;
