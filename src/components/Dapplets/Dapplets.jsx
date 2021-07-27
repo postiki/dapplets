@@ -19,24 +19,31 @@ export default function Dapplets() {
 
     const [inputValue, setInputValue] = useState('')
 
-    const [sortByType, setSortByType] = useState('')
-    const [sortTo, setSortTo] = useState('')
+    const [sortByType, setSortByType] = useState('released')
+    const [sortTo, setSortTo] = useState('DESC')
 
     const [results, setResults] = useState([]);
     const [isSearching, setIsSearching] = useState(false);
 
     const debouncedSearchTerm = useDebounce(inputValue, 500);
 
-
-    window.onload = () => {
-        axios.get('https://dapplets-hiring-api.herokuapp.com/api/v1/dapplets?start=0&limit=10')
-            .then((resp) => setDataItems(resp.data.data))
+    useEffect(() => {
+        axios.get(`https://dapplets-hiring-api.herokuapp.com/api/v1/dapplets?start=0&limit=10&sort=[{"property": "${sortByType}", "direction": "${sortTo}"}]`)
+            .then(response => setDataItems(response.data.data))
             .finally(() => setShowDataItems(true))
-    }
+    }, [sortByType])
+
+    useEffect(() => {
+        if (sortTo){
+            axios.get(`https://dapplets-hiring-api.herokuapp.com/api/v1/dapplets?start=0&limit=10&sort=[{"property": "${sortByType}", "direction": "${sortTo}"}]`)
+                .then(response => setDataItems(response.data.data))
+        }
+    }, [sortTo])
+
 
     useEffect(() => {
         if (fetching) {
-            axios.get('https://dapplets-hiring-api.herokuapp.com/api/v1/dapplets?start=' + `${startPage}` + '&limit=' + `${limitPage}`)
+            axios.get(`https://dapplets-hiring-api.herokuapp.com/api/v1/dapplets?start=${startPage}&limit=${limitPage}&sort=[{"property": "${sortByType}", "direction": "${sortTo}"}]`)
                 .then((response) => {
                     setDataItems([...dataItems, ...response.data.data])
                 })
@@ -63,8 +70,9 @@ export default function Dapplets() {
         () => {
             if (debouncedSearchTerm) {
                 setIsSearching(true);
-                searchCharacters(debouncedSearchTerm).then(data => {
+                searchDapplets(debouncedSearchTerm).then(data => {
                     setIsSearching(false);
+                    console.log(data)
                     setResults(data)
                 });
             } else {
@@ -75,14 +83,13 @@ export default function Dapplets() {
     );
 
 
-    function searchCharacters(search) {
+    function searchDapplets(search) {
         return (
-            axios.get('https://dapplets-hiring-api.herokuapp.com/api/v1/dapplets?start=0&limit=15&filter=[{"property":"title","value":"' + `${search}` + '"}]')
-                .then((response) => response.data.data)
+            axios.get(`https://dapplets-hiring-api.herokuapp.com/api/v1/dapplets?start=0&limit=15&filter=[{"property":"title","value":"${inputValue}"}]`)
+                .then(response => response.data.data)
                 .then(data => data.filter(item => item.title.toLowerCase().includes(inputValue.toLowerCase())))
         )
     }
-
 
     return (
         <div className='dapplets'>
@@ -93,7 +100,7 @@ export default function Dapplets() {
                     <option value='rating'>Rating</option>
                     <option value='downloads'>Downloads</option>
                 </select>
-                <select className='sortBySecond'>
+                <select className='sortBySecond' onChange={(e) => setSortTo(e.target.value)}>
                     <option value='DESC'>Descending</option>
                     <option value='ASC'>Ascending</option>
                 </select>
