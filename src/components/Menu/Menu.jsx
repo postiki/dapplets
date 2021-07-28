@@ -76,7 +76,7 @@ export default function menu () {
                         <img src={close}/>
                     </div>
                     <div className='label'>
-                        <p>'ToDo'</p>
+                        <p>ToDo</p>
                         <img src={close}/>
                     </div>
                 </div>

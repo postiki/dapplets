@@ -35,5 +35,20 @@ input, select, button
 }
 
 .App{
-  display: flex;
+  display: grid;
+  grid-template-columns: 360px 1fr 320px;
+  grid-template-rows: 56px 90px 1fr;
+
+  .menuWrap{
+    grid-column-start: 1;
+    grid-row-start: 1;
+  }
+  .headerWrap{
+    grid-column-start: 2;
+    grid-row-start: 1;
+  }
+  .dappletsWrap{
+    grid-column-start: 2;
+    grid-row-start: 3;
+  }
 }
