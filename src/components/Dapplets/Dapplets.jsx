@@ -14,7 +14,7 @@ export default function Dapplets() {
     const [fetching, setFetching] = useState('true');
 
     const [startPage, setStartPages] = useState(0);
-    const [limitPage, setLimitPages] = useState(1);
+    const [limitPage, setLimitPages] = useState(10);
 
     const [inputValue, setInputValue] = useState('')
 

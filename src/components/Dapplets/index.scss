@@ -1,5 +1,8 @@
 .dapplets {
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
   width: 1060px;
 
   padding: 24px 20px;
@@ -33,16 +36,18 @@
 
       color: #BBBBBB;
 
-      background: url("../../icons/search.svg") no-repeat scroll 10px 12px;
+      background: url("../../icons/search.svg") no-repeat 10px 12px, linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), rgba(255, 255, 255, 0.8); // no-repeat 10px 12px
       padding-left: 36px;
     }
 
     .sortByFirst {
+      padding: 10px;
       width: 210px;
       height: 40px;
     }
 
     .sortBySecond {
+      padding: 10px;
       width: 210px;
       height: 40px;
     }
@@ -52,19 +57,24 @@
 
 @media (min-width: 320px) and (max-width: 428px) {
   .dapplets{
-    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
+    gap: 10px;
     padding: 10px;
 
     .header{
-      width: 100%;
+      width: 300px;
       flex-direction: column;
+      gap: 10px;
 
-      select, input{
-        width: 100%;
-      }
       .search{
-        width: 100%;
+        width: 264px
+      }
+
+      .sortByFirst, .sortBySecond{
+        width: 300px
       }
     }
   }
