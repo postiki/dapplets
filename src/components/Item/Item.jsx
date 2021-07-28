@@ -1,15 +1,14 @@
 import React, {useEffect, useState} from "react";
 
-
 import btn from "../../icons/Group 14.svg";
 import close from '../../icons/closeBtnTags.svg'
 
 import './index.scss'
 
-
 export default function Item({dataItems}) {
 
     const [showInfo, setShowInfo] = useState(false)
+    const [statementB, setStatementB] = useState('')
 
     let tag = [
         {
@@ -47,16 +46,16 @@ export default function Item({dataItems}) {
 
     let saveStateBtn = (props) => {
 
-        if (localStorage.getItem(props)) {
+        if (statementB.includes(props)) {
             localStorage.removeItem(props)
+            setStatementB('')
         } else {
+            setStatementB([...statementB, props])
             localStorage.setItem(props, 'install')
         }
     }
 
-    useEffect(() => {
 
-    })
 
     return (
         dataItems.map((items, index) => {

@@ -5,7 +5,7 @@ import './index.scss'
 
 export default function Header () {
     return (
-        <div className='header'>
+        <div className='head'>
             <div className='extensions'>
                 <img src={status} />
                 <p>Extension state: Active</p>
