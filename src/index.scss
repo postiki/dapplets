@@ -39,6 +39,8 @@ input, select, button
   grid-template-columns: 360px 1240px 320px;
   grid-template-rows: 56px 90px 1fr;
 
+  background: url("./icons/BG.svg");
+
   .menuWrap{
     grid-column-start: 1;
     grid-row-start: 1;
@@ -57,8 +59,8 @@ input, select, button
   }
 }
 
-@media screen and (max-width: 1920px) {
-  body{
-    zoom: 75%;
-  }
-}
+//@media screen and (max-width: 1919px) {
+//  body{
+//    zoom: 75%;
+//  }
+//}

@@ -11,10 +11,10 @@ export default function Dapplets() {
 
     const [dataItems, setDataItems] = useState([]);
     const [showDataItems, setShowDataItems] = useState('');
-    const [fetching, setFetching] = useState('true');
+    const [fetching, setFetching] = useState(true);
 
     const [startPage, setStartPages] = useState(0);
-    const [limitPage, setLimitPages] = useState(10);
+    const [limitPage, setLimitPages] = useState(15);
 
     const [inputValue, setInputValue] = useState('')
 
@@ -27,6 +27,9 @@ export default function Dapplets() {
     const debouncedSearchTerm = useDebounce(inputValue, 500);
 
     const [errors, setErrors] = useState('')
+
+    const [showLoader, setShowLoader] = useState(false)
+    const [percentageLoad, setPercentageLoad] = useState('')
 
     useEffect(() => {
         axios.get(`https://dapplets-hiring-api.herokuapp.com/api/v1/dapplets?start=${startPage}&limit=${limitPage}&sort=[{"property": "${sortByType}", "direction": "${sortTo}"}]`)
@@ -50,12 +53,21 @@ export default function Dapplets() {
 
     useEffect(() => {
         if (fetching) {
-            axios.get(`https://dapplets-hiring-api.herokuapp.com/api/v1/dapplets?start=${startPage}&limit=${limitPage}&sort=[{"property": "${sortByType}", "direction": "${sortTo}"}]`)
+            axios({
+                url: `https://dapplets-hiring-api.herokuapp.com/api/v1/dapplets?start=${startPage}&limit=${limitPage}&sort=[{"property": "${sortByType}", "direction": "${sortTo}"}]`,
+                onDownloadProgress: function (progressEvent) {
+                    let progress = Math.round((progressEvent.loaded / progressEvent.total) * 100);
+                    setPercentageLoad(progress);
+                },
+            })
                 .then((response) => {
                     setDataItems([...dataItems, ...response.data.data])
                 })
                 .then(() => setStartPages(prevState => prevState + 5))
-                .finally(() => setFetching(false))
+                .finally(() => {
+                    setPercentageLoad('0')
+                    setFetching(false)
+                })
         }
     }, [fetching])
 
@@ -98,7 +110,8 @@ export default function Dapplets() {
     }
 
     return (
-        <div className='dapplets'>
+        <div className='dapplets' id='1'>
+            {/*<progress max='100' value={percentageLoad}></progress>*/}
             <div className='header'>
                 <input className='search' placeholder='Search' onChange={(e) => setInputValue(e.target.value)}/>
                 <select className='sortByFirst' onChange={(e) => setSortByType(e.target.value)}>
@@ -111,8 +124,10 @@ export default function Dapplets() {
                     <option value='ASC'>Ascending</option>
                 </select>
             </div>
-            {isSearching && <div>Searching ...</div>}
-            {showDataItems && <Item dataItems={results.length >= 1 ? results : dataItems}/>}
+            <div className='test'>
+                {isSearching && <div>Searching ...</div>}
+                {showDataItems && <Item dataItems={results.length >= 1 ? results : dataItems}/>}
+            </div>
         </div>
     )
 }

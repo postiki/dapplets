@@ -11,9 +11,16 @@
   background: linear-gradient(180deg, rgba(185, 251, 255, 0.2) 0%, rgba(227, 220, 255, 0.2) 100%);
   backdrop-filter: blur(30px);
 
+  border-radius: 10px;
+
+  overflow: hidden;
+
   .header {
     display: flex;
     justify-content: space-between;
+
+    position: sticky;
+    top: 0;
 
     width: 1060px;
 
@@ -54,6 +61,9 @@
     }
   }
 
+  .test{
+    position: relative;
+  }
 }
 
 @media (min-width: 320px) and (max-width: 428px) {
