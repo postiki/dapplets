@@ -8,11 +8,11 @@ export default function Header () {
         <div className='head'>
             <div className='extensions'>
                 <img src={status} />
-                <p>Extension state: Active</p>
+                <h2>Extension state: Active</h2>
             </div>
             <div className='settings'>
                 <img src={setting} />
-                <p>Settings</p>
+                <h2>Settings</h2>
             </div>
         </div>
     )

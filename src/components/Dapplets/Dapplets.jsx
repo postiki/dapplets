@@ -110,7 +110,7 @@ export default function Dapplets() {
     }
 
     return (
-        <div className='dapplets' id='1'>
+        <div className='dapplets'>
             {/*<progress max='100' value={percentageLoad}></progress>*/}
             <div className='header'>
                 <input className='search' placeholder='Search' onChange={(e) => setInputValue(e.target.value)}/>
@@ -124,10 +124,8 @@ export default function Dapplets() {
                     <option value='ASC'>Ascending</option>
                 </select>
             </div>
-            <div className='test'>
-                {isSearching && <div>Searching ...</div>}
-                {showDataItems && <Item dataItems={results.length >= 1 ? results : dataItems}/>}
-            </div>
+            {isSearching && <div>Searching ...</div>}
+            {showDataItems && <Item dataItems={results.length >= 1 ? results : dataItems}/>}
         </div>
     )
 }

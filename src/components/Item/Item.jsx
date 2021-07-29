@@ -65,21 +65,21 @@ export default function Item({dataItems}) {
                     <img className='icon' alt='icons'
                          src={' https://dapplets-hiring-api.herokuapp.com/api/v1/files/' + items.icon}/>
                     <div className='info'>
-                        <p className='title'>{items.title}</p>
-                        <p className='address'>{items.address}</p>
+                        <h2 className='title'>{items.title}</h2>
+                        <h4 className='address'>{items.address}</h4>
                     </div>
-                    <p className='description'>{items.description}</p>
-                    <p className='author'>{items.author}</p>
-                    <p className='tags'>
+                    <h2 className='description'>{items.description}</h2>
+                    <h3 className='author'>{items.author}</h3>
+                    <div className='tags'>
                         {items.tags.map((props, index) => {
                             return (
                                 <div className='label' key={index}>
-                                    <p>{tag.filter(o => o.id.includes(props))[0]?.name}</p>
+                                    <h5>{tag.filter(o => o.id.includes(props))[0]?.name}</h5>
                                     <img src={close}/>
                                 </div>
                             )
                         })}
-                    </p>
+                    </div>
                     <button className={localStorage.getItem(items.id)} onClick={() => saveStateBtn(items.id)}></button>
                     {showInfo && <div className='moreInfo'>
                         <div className='a'>

@@ -16,67 +16,67 @@ export default function menu () {
             <div className='logo'>
                 <div className='logoTitle'>
                     <img src={logo}/>
-                    <p>Dapplets Project.</p>
+                    <h2>Dapplets Project.</h2>
                 </div>
                 <img src={back}/>
             </div>
             <div className='sideIcons'>
                 <div className='active'>
                     <img src={codesandbox}/>
-                    <p>All Dapplets</p>
+                    <h2>All Dapplets</h2>
                 </div>
                 <div>
                     <img src={heart}/>
-                    <p>Editor’s Choice</p>
+                    <h2>Editor’s Choice</h2>
                 </div>
                 <div>
                     <img src={grid}/>
-                    <p>Essential Dapplets</p>
+                    <h2>Essential Dapplets</h2>
                 </div>
                 <div>
                     <img src={social}/>
-                    <p>Social Networks</p>
+                    <h2>Social Networks</h2>
                 </div>
                 <div>
                     <img src={trend}/>
-                    <p>Financial Dapplets</p>
+                    <h2>Financial Dapplets</h2>
                 </div>
             </div>
             <div className='myLists'>
-                <p><b>My lists</b></p>
-                <p>TOP-10 Twitter Dapplets (Me)</p>
-                <p>Best Financial dapplets by Jack (Jack)</p>
-                <p>TOP-10 Twitter Dapplets (Me)</p>
+                <h2><b>My lists</b></h2>
+                <h2>TOP-10 Twitter Dapplets (Me)</h2>
+                <h2>Best Financial dapplets by Jack (Jack)</h2>
+                <h2>TOP-10 Twitter Dapplets (Me)</h2>
             </div>
             <div className='myTags'>
-                <div className='title'><p><b>My tags</b></p></div>
+                <div className='title'><h2><b>My tags</b></h2></div>
                 <div className='tags'>
                     <div className='label'>
-                        <p>Twitter</p>
+                        <h5>Twitter</h5>
                         <img src={close}/>
                     </div>
                     <div className='label'>
-                        <p>SocialMedia</p>
+                        <h5>SocialMedia</h5>
                         <img src={close}/>
                     </div>
                     <div className='label'>
-                        <p>Top 10</p>
+                        <h5>Top 10</h5>
                         <img src={close}/>
                     </div>
                     <div className='label'>
-                        <p>Finances</p>
+                        <h5>Finances</h5>
                         <img src={close}/>
                     </div>
                     <div className='label'>
-                        <p>Media</p>
+                        <h5>Media</h5>
                         <img src={close}/>
                     </div>
                     <div className='label'>
-                        <p>Test</p>
+                        <h5>Test</h5>
                         <img src={close}/>
                     </div>
                     <div className='label'>
-                        <p>ToDo</p>
+                        <h5>ToDo</h5>
                         <img src={close}/>
                     </div>
                 </div>

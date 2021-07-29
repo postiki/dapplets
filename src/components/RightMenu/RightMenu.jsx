@@ -11,17 +11,17 @@ export  default function rightMenu () {
             </div>
             <div className='dappletsettings'>
                 <div className='settingtitle'>
-                    <p><b>DAPPLET SETTINGS</b></p>
+                    <h1><b>DAPPLET SETTINGS</b></h1>
                 </div>
                 <div className='newlist'>
-                    <p>Create new list</p>
+                    <h2>Create new list</h2>
                     <div className='inputlist'>
                         <input placeholder='List Name'/>
                         <button>Create</button>
                     </div>
                 </div>
                 <div className='newtag'>
-                    <p>New tag</p>
+                    <h2>New tag</h2>
                     <div className='inputtag'>
                         <input placeholder='Tag nameList Name'/>
                         <button>Create</button>
@@ -29,49 +29,49 @@ export  default function rightMenu () {
                 </div>
             </div>
             <div className='myTags'>
-                <div className='title'><p><b>MY TAGS</b></p></div>
+                <div className='title'><h1><b>MY TAGS</b></h1></div>
                 <div className='tags'>
                     <div className='label'>
-                        <p>Twitter</p>
+                        <h5>Twitter</h5>
                         <img src={close}/>
                     </div>
                     <div className='label'>
-                        <p>SocialMedia</p>
+                        <h5>SocialMedia</h5>
                         <img src={close}/>
                     </div>
                     <div className='label'>
-                        <p>Top 10</p>
+                        <h5>Top 10</h5>
                         <img src={close}/>
                     </div>
                     <div className='label'>
-                        <p>Finances</p>
+                        <h5>Finances</h5>
                         <img src={close}/>
                     </div>
                 </div>
             </div>
             <div className='coTags'>
-                <div className='title'><p><b>COMMUNITY TAGS</b></p></div>
+                <div className='title'><h1><b>COMMUNITY TAGS</b></h1></div>
                 <div className='tags'>
                     <div className='label'>
-                        <p>Social</p>
+                        <h5>Social</h5>
                         <img src={close}/>
                     </div>
                     <div className='label'>
-                        <p>Top 100</p>
+                        <h5>Top 100</h5>
                         <img src={close}/>
                     </div>
                     <div className='label'>
-                        <p>Testing</p>
+                        <h5>Testing</h5>
                         <img src={close}/>
                     </div>
                     <div className='label'>
-                        <p>Favourites</p>
+                        <h5>Favourites</h5>
                         <img src={close}/>
                     </div>
                 </div>
             </div>
             <div className='workon'>
-                <p><b>WORKING ON</b></p>
+                <h1><b>WORKING ON</b></h1>
                 <ul>
                     <li>twitter.com</li>
                     <li>twitter.com/randomusername</li>

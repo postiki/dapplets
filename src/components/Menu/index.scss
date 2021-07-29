@@ -2,16 +2,16 @@
   display: flex;
   flex-direction: column;
 
-  padding-top: 77px;
+  height: 100vh;
 
-  width: 360px;
-  height: 1400px;
+  padding-top: 77px;
 
   background: linear-gradient(180deg, rgba(185, 251, 255, 0.2) 0%, rgba(227, 220, 255, 0.2) 100%);
   backdrop-filter: blur(30px);
 
   .logo{
     display: flex;
+    justify-content: space-between;
 
     padding-left: 36px;
     padding-bottom: 20px;
@@ -27,6 +27,9 @@
         padding-right: 62px;
       }
     }
+    img{
+      padding-right: 20px;
+    }
   }
 
   .sideIcons{
@@ -38,7 +41,7 @@
     border-bottom: 1px solid white;
 
     img{
-      padding-left: 10px;
+      padding-left: 36px;
     }
 
     div{
@@ -55,13 +58,13 @@
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(30px);
 
-    p{
+    h2{
       color: #0085FF;
       text-shadow: 0px 0px 20px #0085FF;
     }
 
     img{
-      padding-left: 10px;
+      padding-left: 36px;
     }
   }
   .myLists{
@@ -69,17 +72,16 @@
     flex-direction: column;
     gap: 20px;
 
-    width: 280px;
-
     margin-left: 36px;
+    padding-right: 10px;
     padding-top: 20px;
     border-bottom: 1px solid white;
     padding-bottom: 20px;
   }
 
   .myTags{
-    width: 280px;
     margin-left: 36px;
+    padding-right: 10px;
     padding-top: 20px;
 
     .tags{
@@ -92,18 +94,20 @@
         align-items: center;
         gap: 10px;
 
-        height: 10px;
+        height: 14px;
 
         padding: 2px 3px;
         margin: 5px 2px;
 
         color: white;
-        font-size: 10px;
-        font-weight: 500;
         text-align: center;
 
         background: #5241BF;
         border-radius: 4px;
+
+        h5{
+          font-weight: normal;
+        }
       }
     }
   }

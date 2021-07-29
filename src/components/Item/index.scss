@@ -1,6 +1,8 @@
 .item{
   display: grid;
-  grid-template-columns: 18px 50px 212px 270px 115px 150px 85px;
+  //grid-template-columns: 18px 50px 212px 270px 115px 150px 85px;
+  //grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: minmax(auto, 18px) minmax(auto, 50px) minmax(auto, 212px) minmax(auto, 270px) minmax(auto, 115px) minmax(auto, 150px) minmax(auto, 85px);
   grid-template-rows: 50px;
 
   align-items: center;
@@ -16,11 +18,14 @@
   border-radius: 10px;
 
   .drag-btn{
+    width: 100%;
+    max-width: 18px;
     grid-column-start: 1;
     height: 9px;
   }
 
   .icon{
+    max-width: 50px;
     grid-column-start: 2;
     height: 50px;
 
@@ -28,6 +33,7 @@
   }
 
   .info{
+    max-width: 212px;
     grid-column-start: 3;
     height: 36px;
 
@@ -60,6 +66,7 @@
   }
 
   .description{
+    max-width: 270px;
     grid-column-start: 4;
     height: 38px;
 
@@ -74,6 +81,7 @@
   }
 
   .author{
+    max-width: 115px;
     grid-column-start: 5;
 
     font-weight: normal;
@@ -86,6 +94,7 @@
   }
 
   .tags{
+    max-width: 115px;
     display: flex;
     flex-wrap: wrap;
 
@@ -94,7 +103,7 @@
       align-items: center;
       gap: 4px;
 
-      height: 10px;
+      height: 14px;
 
       padding: 2px 3px;
       margin: 5px 2px;
@@ -104,14 +113,14 @@
 
       background: #5241BF;
       border-radius: 4px;
-      p{
-        font-weight: 500;
-        font-size: 10px;
+      h5{
+        font-weight: normal;
       }
     }
   }
 
   button{
+    max-width: 85px;
     grid-column-start: 7;
     height: 26px;
 
@@ -129,7 +138,7 @@
   }
 
   .install{
-    width: 100px;
+   max-width: 100px;
     height: 26px;
 
     background: #CCD4DB;
@@ -225,3 +234,4 @@
     }
   }
 }
+
