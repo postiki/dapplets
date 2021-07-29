@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/dapplets/static/css/main.aa50abfc.chunk.css",
-    "main.js": "/dapplets/static/js/main.352b663c.chunk.js",
-    "main.js.map": "/dapplets/static/js/main.352b663c.chunk.js.map",
+    "main.css": "/dapplets/static/css/main.67f25daa.chunk.css",
+    "main.js": "/dapplets/static/js/main.85cbf9cd.chunk.js",
+    "main.js.map": "/dapplets/static/js/main.85cbf9cd.chunk.js.map",
     "runtime-main.js": "/dapplets/static/js/runtime-main.bede84d0.js",
     "runtime-main.js.map": "/dapplets/static/js/runtime-main.bede84d0.js.map",
     "static/js/2.2cc56dc3.chunk.js": "/dapplets/static/js/2.2cc56dc3.chunk.js",
     "static/js/2.2cc56dc3.chunk.js.map": "/dapplets/static/js/2.2cc56dc3.chunk.js.map",
     "index.html": "/dapplets/index.html",
-    "static/css/main.aa50abfc.chunk.css.map": "/dapplets/static/css/main.aa50abfc.chunk.css.map",
+    "static/css/main.67f25daa.chunk.css.map": "/dapplets/static/css/main.67f25daa.chunk.css.map",
     "static/js/2.2cc56dc3.chunk.js.LICENSE.txt": "/dapplets/static/js/2.2cc56dc3.chunk.js.LICENSE.txt",
     "static/media/index.scss": "/dapplets/static/media/search.65d99892.svg",
     "static/media/Group 14.6dd0a1f7.svg": "/dapplets/static/media/Group 14.6dd0a1f7.svg",
@@ -27,7 +27,7 @@
   "entrypoints": [
     "static/js/runtime-main.bede84d0.js",
     "static/js/2.2cc56dc3.chunk.js",
-    "static/css/main.aa50abfc.chunk.css",
-    "static/js/main.352b663c.chunk.js"
+    "static/css/main.67f25daa.chunk.css",
+    "static/js/main.85cbf9cd.chunk.js"
   ]
 }
