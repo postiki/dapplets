@@ -50,7 +50,7 @@ export default function Item({dataItems}) {
             localStorage.removeItem(props)
             setStatementB('')
         } else {
-            setStatementB([...statementB, props])
+            setStatementB(props)
             localStorage.setItem(props, 'install')
         }
     }

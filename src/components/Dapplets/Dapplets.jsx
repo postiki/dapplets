@@ -26,11 +26,26 @@ export default function Dapplets() {
 
     const debouncedSearchTerm = useDebounce(inputValue, 500);
 
+    const [errors, setErrors] = useState('')
+
     useEffect(() => {
         axios.get(`https://dapplets-hiring-api.herokuapp.com/api/v1/dapplets?start=${startPage}&limit=${limitPage}&sort=[{"property": "${sortByType}", "direction": "${sortTo}"}]`)
             .then(response => setDataItems(response.data.data))
+            .catch(err => {
+                if (err.response) {
+                    console.log(err.response)
+                } else if (err.request) {
+                    console.log(err.request)
+                } else {
+                    // anything else
+                }
+            })
             .finally(() => setShowDataItems(true))
     }, [sortByType, sortTo])
+
+    useEffect(() => {
+        console.log(errors)
+    }, [errors])
 
 
     useEffect(() => {

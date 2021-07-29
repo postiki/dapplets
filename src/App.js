@@ -5,6 +5,8 @@ import './index.scss'
 import Menu from './components/Menu/Menu'
 import Dapplets from "./components/Dapplets/Dapplets";
 import Header from "./components/Header/Header";
+import RightMenu from './components/RightMenu/RightMenu'
+
 
 
 function App() {
@@ -19,6 +21,9 @@ function App() {
             </div>
             <div className='headerWrap'>
                 <Header/>
+            </div>
+            <div className='rightMenuWrap'>
+                <RightMenu />
             </div>
         </div>
     )
