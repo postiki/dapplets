@@ -1,24 +1,25 @@
 {
   "files": {
-    "main.css": "/dapplets/static/css/main.cd2eb83f.chunk.css",
-    "main.js": "/dapplets/static/js/main.8ad0149c.chunk.js",
-    "main.js.map": "/dapplets/static/js/main.8ad0149c.chunk.js.map",
+    "main.css": "/dapplets/static/css/main.3e02cc53.chunk.css",
+    "main.js": "/dapplets/static/js/main.22239dac.chunk.js",
+    "main.js.map": "/dapplets/static/js/main.22239dac.chunk.js.map",
     "runtime-main.js": "/dapplets/static/js/runtime-main.bede84d0.js",
     "runtime-main.js.map": "/dapplets/static/js/runtime-main.bede84d0.js.map",
     "static/js/2.2cc56dc3.chunk.js": "/dapplets/static/js/2.2cc56dc3.chunk.js",
     "static/js/2.2cc56dc3.chunk.js.map": "/dapplets/static/js/2.2cc56dc3.chunk.js.map",
     "index.html": "/dapplets/index.html",
-    "static/css/main.cd2eb83f.chunk.css.map": "/dapplets/static/css/main.cd2eb83f.chunk.css.map",
+    "static/css/main.3e02cc53.chunk.css.map": "/dapplets/static/css/main.3e02cc53.chunk.css.map",
     "static/js/2.2cc56dc3.chunk.js.LICENSE.txt": "/dapplets/static/js/2.2cc56dc3.chunk.js.LICENSE.txt",
     "static/media/Group 14.6dd0a1f7.svg": "/dapplets/static/media/Group 14.6dd0a1f7.svg",
     "static/media/Logo.b162600e.svg": "/dapplets/static/media/Logo.b162600e.svg",
+    "static/media/index.scss": "/dapplets/static/media/search.65d99892.svg",
     "static/media/Vector.f77052b5.svg": "/dapplets/static/media/Vector.f77052b5.svg",
+    "static/media/arrow-left.17f80631.svg": "/dapplets/static/media/arrow-left.17f80631.svg",
     "static/media/arrow-right.841b27e6.svg": "/dapplets/static/media/arrow-right.841b27e6.svg",
     "static/media/carbon_settings-adjust.1dfffe4d.svg": "/dapplets/static/media/carbon_settings-adjust.1dfffe4d.svg",
     "static/media/clarity_cloud-network-line.dddfba07.svg": "/dapplets/static/media/clarity_cloud-network-line.dddfba07.svg",
     "static/media/closeBtnTags.9a146af2.svg": "/dapplets/static/media/closeBtnTags.9a146af2.svg",
     "static/media/codesandbox.375124aa.svg": "/dapplets/static/media/codesandbox.375124aa.svg",
-    "static/media/index.scss": "/dapplets/static/media/search.65d99892.svg",
     "static/media/grid.4eb70c25.svg": "/dapplets/static/media/grid.4eb70c25.svg",
     "static/media/trending-up.86d6ff3f.svg": "/dapplets/static/media/trending-up.86d6ff3f.svg",
     "static/media/users.32027de1.svg": "/dapplets/static/media/users.32027de1.svg"
@@ -26,7 +27,7 @@
   "entrypoints": [
     "static/js/runtime-main.bede84d0.js",
     "static/js/2.2cc56dc3.chunk.js",
-    "static/css/main.cd2eb83f.chunk.css",
-    "static/js/main.8ad0149c.chunk.js"
+    "static/css/main.3e02cc53.chunk.css",
+    "static/js/main.22239dac.chunk.js"
   ]
 }
