@@ -80,7 +80,7 @@ export default function Item({dataItems}) {
                             )
                         })}
                     </p>
-                    <button className={localStorage.getItem(items.id)} onClick={() => saveStateBtn(items.id)}><p>INSTALL</p></button>
+                    <button className={localStorage.getItem(items.id)} onClick={() => saveStateBtn(items.id)}></button>
                     {showInfo && <div className='moreInfo'>
                         <div className='a'>
                             <p className='text_1'>Aliquam sit</p>

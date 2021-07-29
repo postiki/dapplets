@@ -124,12 +124,26 @@
     border-radius: 50px;
   }
 
+  button:before{
+    content: 'INSTALL';
+  }
+
   .install{
     width: 100px;
     height: 26px;
 
     background: #CCD4DB;
     border-radius: 50px;
+  }
+
+  .install:before{
+    content: 'INSTALLED';
+  }
+
+  .install:hover{
+    &:before{
+      content: 'UNINSTALL';
+    }
   }
 }
 
