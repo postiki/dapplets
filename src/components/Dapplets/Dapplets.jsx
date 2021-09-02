@@ -1,11 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import useDebounce from './use-debounced';
 import axios from "axios";
-
 import './index.scss'
-
 import Item from "../Item/Item";
-
 
 export default function Dapplets() {
 
