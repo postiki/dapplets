@@ -158,3 +158,30 @@
     }
   }
 }
+
+//@media (min-width: 1280px) and (max-width: 1440px){
+//  .rightMenu{
+//    padding-top: 56px;
+//
+//    .dappletsettings{
+//
+//      .newlist{
+//        padding-bottom: 30px;
+//      }
+//
+//      .newtag{
+//        padding-bottom: 30px;
+//      }
+//    }
+//
+//    .myTags{
+//      padding-bottom: 20px;
+//    }
+//  }
+//}
+
+@media (min-width: 1280px) and (max-width: 1440px){
+  .rightMenu{
+    zoom: 75%;
+  }
+}

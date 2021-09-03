@@ -23,3 +23,9 @@
     padding-right: 86px;
   }
 }
+
+@media (min-width: 1280px) and (max-width: 1440px){
+  .head{
+    zoom: 75%;
+  }
+}

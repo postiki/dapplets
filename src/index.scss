@@ -4,6 +4,7 @@ body {
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   box-sizing: border-box;
+  height: 100vh;
 }
 
 body,
@@ -44,27 +45,22 @@ input, select, button
   grid-template-columns: minmax(auto, 360px) minmax(auto, 1240px) minmax(auto, 320px);
   grid-template-rows: 56px 90px 1fr;
 
-  position: sticky;
-
   width: 100%;
   height: 100vh;
 
   background: url("./icons/BG.svg");
 
   .menuWrap{
-    max-width: 360px;
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 1;
     grid-row-end: 4;
-
 
     background: linear-gradient(180deg, rgba(185, 251, 255, 0.2) 0%, rgba(227, 220, 255, 0.2) 100%);
     backdrop-filter: blur(30px);
   }
 
   .headerWrap{
-    max-width: 1240px;
     grid-column-start: 2;
     grid-column-end: 3;
     grid-row-start: 1;
@@ -72,18 +68,15 @@ input, select, button
   }
 
   .dappletsWrap{
-    max-width: 1100px;
     grid-column-start: 2;
     grid-column-end: 3;
     grid-row-start: 3;
     grid-row-end: 4;
 
-    height: 100%;
     overflow-y: scroll;
   }
 
   .rightMenuWrap{
-    max-width: 320px;
     grid-column-start: 3;
     grid-column-end: 4;
     grid-row-start: 1;
@@ -112,27 +105,22 @@ input, select, button
 
 @media (min-width: 1280px) and (max-width: 1440px){
   .App{
-    zoom: 75%;
+    grid-template-columns: minmax(auto, 270px) minmax(auto, 930px) minmax(auto, 240px);
+
+    //h1{
+    //  font-size: 23px;
+    //}
+    //h2{
+    //  font-size: 15px;
+    //}
+    //h3{
+    //  font-size: 13px;
+    //}
+    //h4{
+    //  font-size: 11px;
+    //}
+    //h5{
+    //  font-size: 9px;
+    //}
   }
 }
-
-
-//@media (min-width: 1439px) and (max-width: 1919px){
-//  .App{
-//    h1{
-//      font-size: 23px;
-//    }
-//    h2{
-//      font-size: 15px;
-//    }
-//    h3{
-//      font-size: 13px;
-//    }
-//    h4{
-//      font-size: 11px;
-//    }
-//    h5{
-//      font-size: 9px;
-//    }
-//  }
-//}
