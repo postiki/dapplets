@@ -39,6 +39,15 @@ export default function Dapplets() {
     }, [errors])
 
 
+
+    let scroll = (e) => {
+        let scrollWindow = document.getElementById('100')
+
+        if (scrollWindow.scrollHeight - scrollWindow.scrollTop > 1) {
+            setFetching(true)
+        }
+    }
+
     useEffect(() => {
         if (fetching) {
             axios({
@@ -60,18 +69,22 @@ export default function Dapplets() {
     }, [fetching])
 
     useEffect(() => {
-        document.addEventListener('scroll', scroll)
+        document.getElementById('100').addEventListener('scroll', scroll)
         return function () {
             document.removeEventListener('scroll', scroll)
         }
     }, [])
 
-    let scroll = (e) => {
-        if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100) {
-            setFetching(true)
-        }
-    }
 
+    // let options = {
+    //     root: document.querySelector('#scrollArea'),
+    //     rootMargin: '0px',
+    //     threshold: 1.0
+    // }
+    //
+    // var callback = function(entries, observer) {
+    //
+    // }
 
     useEffect(
         () => {
@@ -93,7 +106,7 @@ export default function Dapplets() {
         return (
             axios.get(`https://dapplets-hiring-api.herokuapp.com/api/v1/dapplets?start=0&limit=15&filter=[{"property":"title","value":"${inputValue}"}]`)
                 .then(response => response.data.data)
-                .then(data => data.filter(item => item.title.toLowerCase().includes(inputValue.toLowerCase())))
+                // .then(data => data.filter(item => item.title.toLowerCase().includes(inputValue.toLowerCase())))
         )
     }
 

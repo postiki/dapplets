@@ -16,7 +16,7 @@ function App() {
             <div className='menuWrap'>
                 <Menu/>
             </div>
-            <div className='dappletsWrap'>
+            <div className='dappletsWrap' id='100'>
                 <Dapplets/>
             </div>
             <div className='headerWrap'>
