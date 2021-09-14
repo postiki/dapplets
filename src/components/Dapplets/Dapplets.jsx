@@ -8,7 +8,7 @@ export default function Dapplets() {
 
     const [dataItems, setDataItems] = useState([]);
     const [showDataItems, setShowDataItems] = useState('');
-    const [fetching, setFetching] = useState(true);
+    const [fetching, setFetching] = useState(false);
 
     const [startPage, setStartPages] = useState(0);
     const [limitPage, setLimitPages] = useState(15);
@@ -23,50 +23,11 @@ export default function Dapplets() {
 
     const debouncedSearchTerm = useDebounce(inputValue, 500);
 
-    const [errors, setErrors] = useState('')
-
-    const [showLoader, setShowLoader] = useState(false)
-    const [percentageLoad, setPercentageLoad] = useState('')
-
     useEffect(() => {
         axios.get(`https://dapplets-hiring-api.herokuapp.com/api/v1/dapplets?start=${startPage}&limit=${limitPage}&sort=[{"property": "${sortByType}", "direction": "${sortTo}"}]`)
             .then(response => setDataItems(response.data.data))
             .finally(() => setShowDataItems(true))
     }, [sortByType, sortTo])
-
-    useEffect(() => {
-        console.log(errors)
-    }, [errors])
-
-
-
-    let scroll = (e) => {
-        let scrollWindow = document.getElementById('100')
-
-        if (scrollWindow.scrollHeight - scrollWindow.scrollTop > 1) {
-            setFetching(true)
-        }
-    }
-
-    useEffect(() => {
-        if (fetching) {
-            axios({
-                url: `https://dapplets-hiring-api.herokuapp.com/api/v1/dapplets?start=${startPage}&limit=${limitPage}&sort=[{"property": "${sortByType}", "direction": "${sortTo}"}]`,
-                onDownloadProgress: function (progressEvent) {
-                    let progress = Math.round((progressEvent.loaded / progressEvent.total) * 100);
-                    setPercentageLoad(progress);
-                },
-            })
-                .then((response) => {
-                    setDataItems([...dataItems, ...response.data.data])
-                })
-                .then(() => setStartPages(prevState => prevState + 5))
-                .finally(() => {
-                    setPercentageLoad('0')
-                    setFetching(false)
-                })
-        }
-    }, [fetching])
 
     useEffect(() => {
         document.getElementById('100').addEventListener('scroll', scroll)
@@ -75,19 +36,26 @@ export default function Dapplets() {
         }
     }, [])
 
+    let scroll = (e) => {
+        let scrollWindow = document.getElementById('100')
 
-    // let options = {
-    //     root: document.querySelector('#scrollArea'),
-    //     rootMargin: '0px',
-    //     threshold: 1.0
-    // }
-    //
-    // var callback = function(entries, observer) {
-    //
-    // }
+        if (scrollWindow.scrollHeight - (scrollWindow.scrollTop + scrollWindow.clientHeight) < 100) {
+            setFetching(true)
+        }
+    }
 
-    useEffect(
-        () => {
+    useEffect(() => {
+        if (fetching) {
+            axios(`https://dapplets-hiring-api.herokuapp.com/api/v1/dapplets?start=${startPage}&limit=${limitPage}&sort=[{"property": "${sortByType}", "direction": "${sortTo}"}]`)
+                .then((response) => {
+                    setDataItems([...dataItems, ...response.data.data])
+                })
+                .then(() => setStartPages(prevState => prevState + 5))
+                .finally(() => setFetching(false))
+        }
+    }, [fetching])
+
+    useEffect(() => {
             if (debouncedSearchTerm) {
                 setIsSearching(true);
                 searchDapplets(debouncedSearchTerm).then(data => {
@@ -97,10 +65,7 @@ export default function Dapplets() {
             } else {
                 setResults([]);
             }
-        },
-        [debouncedSearchTerm]
-    );
-
+        },[debouncedSearchTerm]);
 
     function searchDapplets(search) {
         return (
@@ -112,7 +77,6 @@ export default function Dapplets() {
 
     return (
         <div className='dapplets'>
-            {/*<progress max='100' value={percentageLoad}></progress>*/}
             <div className='header'>
                 <input className='search' placeholder='Search' onChange={(e) => setInputValue(e.target.value)}/>
                 <select className='sortByFirst' onChange={(e) => setSortByType(e.target.value)}>
