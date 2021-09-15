@@ -13,18 +13,18 @@ function App() {
 
     return (
         <div className="App">
-            {/*<div className='menuWrap'>*/}
-            {/*    <Menu/>*/}
-            {/*</div>*/}
+            <div className='menuWrap'>
+                <Menu/>
+            </div>
             <div className='dappletsWrap' id='100'>
                 <Dapplets/>
             </div>
-            {/*<div className='headerWrap'>*/}
-            {/*    <Header/>*/}
-            {/*</div>*/}
-            {/*<div className='rightMenuWrap'>*/}
-            {/*    <RightMenu />*/}
-            {/*</div>*/}
+            <div className='headerWrap'>
+                <Header/>
+            </div>
+            <div className='rightMenuWrap'>
+                <RightMenu />
+            </div>
         </div>
     )
 }
