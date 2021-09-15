@@ -1,0 +1,109 @@
+.dapplets {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  max-width: 1100px;
+
+  background: linear-gradient(180deg, rgba(185, 251, 255, 0.2) 0%, rgba(227, 220, 255, 0.2) 100%);
+  border-radius: 10px;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+    padding: 10px;
+
+    border-bottom: 1px solid white;
+
+    select, input {
+      width: 100%;
+
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), rgba(255, 255, 255, 0.8);
+      box-shadow: 10px 10px 40px rgba(156, 185, 222, 0.36);
+      border-radius: 10px;
+
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 19px;
+    }
+
+    .search {
+      max-width: 564px;
+      height: 40px;
+
+      background: url("../../icons/search.svg") no-repeat 10px 12px, linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), rgba(255, 255, 255, 0.8); // no-repeat 10px 12px
+      padding-left: 36px;
+    }
+
+    .sortByFirst {
+      max-width: 210px;
+      height: 40px;
+    }
+
+    .sortBySecond {
+      max-width: 210px;
+      height: 40px;
+    }
+  }
+
+  .items{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 20px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 428px) {
+  .dapplets{
+    width: 300px;
+    margin: 0;
+    padding: 0;
+
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), rgba(255, 255, 255, 0.8);
+    box-shadow: 10px 10px 40px rgba(156, 185, 222, 0.36);
+
+    border-radius: 10px;
+
+    .header{
+      flex-direction: column;
+
+      .search{
+        max-width: 428px;
+        height: 30px;
+        grid-column: 1/1;
+        grid-row: 1/2;
+
+        margin: 0;
+        padding: 0;
+
+        font-size: 12px;
+      }
+      .sortByFirst{
+        max-width: 428px;
+        height: 30px;
+        grid-column: 1/1;
+        grid-row: 2/3;
+
+        margin: 0;
+        padding: 0;
+
+        font-size: 12px;
+      }
+      .sortBySecond{
+        max-width: 428px;
+        height: 30px;
+        grid-column: 1/1;
+        grid-row: 3/4;
+
+        margin: 0;
+        padding: 0;
+
+        font-size: 12px;
+      }
+    }
+  }
+}

@@ -1,0 +1,138 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  box-sizing: border-box;
+  height: 100vh;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+
+}
+
+input, select, button
+{
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border: none;
+}
+
+.App{
+  display: grid;
+  grid-template-columns: minmax(auto, 360px) minmax(auto, 1240px) minmax(auto, 320px);
+  grid-template-rows: 56px 90px 1fr;
+
+  width: 100%;
+  height: 100vh;
+
+  //background: url("./icons/BG.svg");
+
+  .menuWrap{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 4;
+
+    background: linear-gradient(180deg, rgba(185, 251, 255, 0.2) 0%, rgba(227, 220, 255, 0.2) 100%);
+    backdrop-filter: blur(30px);
+  }
+
+  .headerWrap{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+
+  .dappletsWrap{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+
+    overflow-y: scroll;
+  }
+
+  .rightMenuWrap{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 4;
+
+    background: linear-gradient(180deg, rgba(185, 251, 255, 0.2) 0%, rgba(227, 220, 255, 0.2) 100%);
+    backdrop-filter: blur(30px);
+  }
+
+  h1{
+    font-size: 24px;
+  }
+  h2{
+    font-size: 16px;
+  }
+  h3{
+    font-size: 14px;
+  }
+  h4{
+    font-size: 12px;
+  }
+  h5{
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 430px){
+  .App{
+    grid-template-columns: minmax(320px, auto);
+    grid-template-rows: 70px 1fr;
+    justify-items: center;
+
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    background: none;
+
+    .menuWrap{
+      display: none;
+      grid-column: 1/2;
+      grid-row: 1/2;
+    }
+    .dappletsWrap{
+      grid-column: 1/2;
+      grid-row: 2/3;
+    }
+
+    .headerWrap, .rightMenuWrap{
+      display: none;
+    }
+  }
+}
+@media (min-width: 1280px) and (max-width: 1440px){
+  .App{
+    grid-template-columns: minmax(auto, 270px) minmax(auto, auto) minmax(auto, 240px);
+  }
+}
