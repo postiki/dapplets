@@ -4,7 +4,7 @@ import axios from "axios";
 import './index.scss'
 import Item from "../Item/Item";
 
-export default function Dapplets({handleError}) {
+export default function Dapplets() {
 
     const [dataItems, setDataItems] = useState([]);
     const [showDataItems, setShowDataItems] = useState(false);
