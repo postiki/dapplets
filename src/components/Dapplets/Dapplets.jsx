@@ -4,14 +4,14 @@ import axios from "axios";
 import './index.scss'
 import Item from "../Item/Item";
 
-export default function Dapplets() {
+export default function Dapplets({handleError}) {
 
     const [dataItems, setDataItems] = useState([]);
-    const [showDataItems, setShowDataItems] = useState('');
+    const [showDataItems, setShowDataItems] = useState(false);
     const [fetching, setFetching] = useState(false);
 
     const [startPage, setStartPages] = useState(0);
-    const [limitPage, setLimitPages] = useState(15);
+    const limitPage = 15;
 
     const [inputValue, setInputValue] = useState('')
 
@@ -26,8 +26,9 @@ export default function Dapplets() {
     useEffect(() => {
         axios.get(`https://dapplets-hiring-api.herokuapp.com/api/v1/dapplets?start=${startPage}&limit=${limitPage}&sort=[{"property": "${sortByType}", "direction": "${sortTo}"}]`)
             .then(response => setDataItems(response.data.data))
+            .catch(error => console.log(error))
             .finally(() => setShowDataItems(true))
-    }, [sortByType, sortTo])
+    },[sortByType, sortTo])
 
     useEffect(() => {
         document.getElementById('100').addEventListener('scroll', scroll)
@@ -36,7 +37,7 @@ export default function Dapplets() {
         }
     }, [])
 
-    let scroll = (e) => {
+    let scroll = () => {
         let scrollWindow = document.getElementById('100')
 
         if (scrollWindow.scrollHeight - (scrollWindow.scrollTop + scrollWindow.clientHeight) < 100) {
@@ -47,18 +48,17 @@ export default function Dapplets() {
     useEffect(() => {
         if (fetching) {
             axios(`https://dapplets-hiring-api.herokuapp.com/api/v1/dapplets?start=${startPage}&limit=${limitPage}&sort=[{"property": "${sortByType}", "direction": "${sortTo}"}]`)
-                .then((response) => {
-                    setDataItems([...dataItems, ...response.data.data])
-                })
+                .then((response) => setDataItems([...dataItems, ...response.data.data]))
+                .catch(error => console.log(error))
                 .then(() => setStartPages(prevState => prevState + 5))
                 .finally(() => setFetching(false))
         }
-    }, [fetching])
+    },[fetching])
 
     useEffect(() => {
             if (debouncedSearchTerm) {
                 setIsSearching(true);
-                searchDapplets(debouncedSearchTerm).then(data => {
+                search(debouncedSearchTerm).then(data => {
                     setIsSearching(false);
                     setResults(data)
                 });
@@ -67,11 +67,11 @@ export default function Dapplets() {
             }
         },[debouncedSearchTerm]);
 
-    function searchDapplets(search) {
+    function search() {
         return (
             axios.get(`https://dapplets-hiring-api.herokuapp.com/api/v1/dapplets?start=0&limit=15&filter=[{"property":"title","value":"${inputValue}"}]`)
-                .then(response => response.data.data)
-                // .then(data => data.filter(item => item.title.toLowerCase().includes(inputValue.toLowerCase())))
+                .then(response => response.data.data.filter(item => item.title.toLowerCase().indexOf(inputValue.toLowerCase()) >= 0)) //last filtration on frontend
+                .catch(error => console.log(error))
         )
     }
 

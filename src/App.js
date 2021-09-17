@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
 import './index.scss'
 
@@ -17,7 +17,7 @@ function App() {
                 <Menu/>
             </div>
             <div className='dappletsWrap' id='100'>
-                <Dapplets/>
+                <Dapplets />
             </div>
             <div className='headerWrap'>
                 <Header/>
