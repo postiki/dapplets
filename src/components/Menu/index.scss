@@ -7,6 +7,7 @@
   .logo{
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     padding-left: 36px;
     padding-bottom: 20px;
@@ -15,15 +16,21 @@
       display: flex;
       align-items: center;
 
-      img{
-        padding-right: 10px;
-      }
       p{
         padding-right: 62px;
       }
     }
     img{
       padding-right: 20px;
+    }
+
+    .menuIcon{
+      width: 16px;
+      height: 16px;
+
+      padding-right: 20px;
+
+      background: url("../../icons/arrow-right.svg") no-repeat;
     }
   }
 
@@ -103,6 +110,35 @@
         h5{
           font-weight: normal;
         }
+      }
+    }
+  }
+}
+
+
+@media (min-width: 320px) and (max-width: 428px) {
+  .menu{
+    padding: 10px 10px;
+
+    .sideIcons{
+      display: none;
+    }
+    .myLists{
+      display: none;
+    }
+    .myTags{
+      display: none;
+    }
+
+    .logo{
+      padding: 0;
+      h2{
+        font-weight: 900;
+        font-size: 16px;
+        line-height: 149%;
+      }
+      .menuIcon{
+        background: url("../../icons/Menu.svg") no-repeat;
       }
     }
   }

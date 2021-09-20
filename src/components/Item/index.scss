@@ -139,7 +139,7 @@
   .item{
     max-width: 408px;
     height: 118px;
-    grid-template-columns: minmax(50px, auto) minmax(184px, auto) minmax(26px, auto);
+    grid-template-columns: minmax(50px, auto) minmax(184px, 292px) minmax(26px, auto);
     grid-template-rows: 25px 25px 14px 14px;
 
     gap: 10px;
@@ -148,10 +148,10 @@
     justify-content: normal;
 
     padding: 10px 10px;
-    margin: 0px 10px;
+    margin: 0 10px;
 
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), rgba(255, 255, 255, 0.6);
-    box-shadow: 0px 0px 19px rgba(156, 185, 222, 0.15);
+    box-shadow: 0 0 19px rgba(156, 185, 222, 0.15);
     border-radius: 10px;
 
 
@@ -167,6 +167,8 @@
       grid-column: 2/3;
       grid-row: 1/2;
 
+      max-width: 292px;
+
       .title{
         font-size: 12px;
         line-height: 14px;
@@ -178,6 +180,9 @@
     .author{
       grid-column: 2/3;
       grid-row: 2/3;
+
+      max-width: 292px;
+
       font-size: 12px;
       line-height: 14px;
     }
@@ -194,6 +199,11 @@
     .description{
       grid-column: 1/4;
       grid-row: 3/4;
+
+      max-width: 408px;
+
+      white-space: nowrap;
+
       font-size: 12px;
       line-height: 14px;
     }

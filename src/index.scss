@@ -103,13 +103,11 @@ input, select, button
   }
 }
 
-@media (min-width: 320px) and (max-width: 430px){
+@media (min-width: 320px) and (max-width: 428px){
   .App{
     grid-template-columns: minmax(320px, auto);
     grid-template-rows: 70px 1fr;
     justify-items: center;
-
-    width: 100%;
 
     margin: 0;
     padding: 0;
@@ -117,13 +115,17 @@ input, select, button
     background: none;
 
     .menuWrap{
-      display: none;
       grid-column: 1/2;
       grid-row: 1/2;
+
+      width: 100%;
     }
     .dappletsWrap{
       grid-column: 1/2;
       grid-row: 2/3;
+
+      width: 100%;
+      overflow-y: visible;
     }
 
     .headerWrap, .rightMenuWrap{

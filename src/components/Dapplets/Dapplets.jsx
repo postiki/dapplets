@@ -3,6 +3,7 @@ import useDebounce from './use-debounced';
 import axios from "axios";
 import './index.scss'
 import Item from "../Item/Item";
+import {LinearProgress} from "@mui/material";
 
 export default function Dapplets() {
 
@@ -21,6 +22,9 @@ export default function Dapplets() {
     const [results, setResults] = useState([]);
     const [isSearching, setIsSearching] = useState(false);
 
+    const [progress, setProgress] = useState(0);
+    const [showProgress, setShowProgress] = useState(false);
+
     const debouncedSearchTerm = useDebounce(inputValue, 500);
 
     useEffect(() => {
@@ -28,7 +32,7 @@ export default function Dapplets() {
             .then(response => setDataItems(response.data.data))
             .catch(error => console.log(error))
             .finally(() => setShowDataItems(true))
-    },[sortByType, sortTo])
+    }, [sortByType, sortTo])
 
     useEffect(() => {
         document.getElementById('100').addEventListener('scroll', scroll)
@@ -47,25 +51,33 @@ export default function Dapplets() {
 
     useEffect(() => {
         if (fetching) {
-            axios(`https://dapplets-hiring-api.herokuapp.com/api/v1/dapplets?start=${startPage}&limit=${limitPage}&sort=[{"property": "${sortByType}", "direction": "${sortTo}"}]`)
+            setShowProgress(true)
+            axios.get(`https://dapplets-hiring-api.herokuapp.com/api/v1/dapplets?start=${startPage}&limit=${limitPage}&sort=[{"property": "${sortByType}", "direction": "${sortTo}"}]`, {
+                onDownloadProgress: progressEvent => {
+                    const percentage = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+                    console.log(percentage)
+                    setProgress(percentage)
+                    setShowProgress(false)
+                }
+            })
                 .then((response) => setDataItems([...dataItems, ...response.data.data]))
                 .catch(error => console.log(error))
                 .then(() => setStartPages(prevState => prevState + 5))
                 .finally(() => setFetching(false))
         }
-    },[fetching])
+    }, [fetching])
 
     useEffect(() => {
-            if (debouncedSearchTerm) {
-                setIsSearching(true);
-                search(debouncedSearchTerm).then(data => {
-                    setIsSearching(false);
-                    setResults(data)
-                });
-            } else {
-                setResults([]);
-            }
-        },[debouncedSearchTerm]);
+        if (debouncedSearchTerm) {
+            setIsSearching(true);
+            search(debouncedSearchTerm).then(data => {
+                setIsSearching(false);
+                setResults(data)
+            });
+        } else {
+            setResults([]);
+        }
+    }, [debouncedSearchTerm]);
 
     function search() {
         return (
@@ -93,6 +105,7 @@ export default function Dapplets() {
             <div className='items'>
                 {showDataItems && <Item dataItems={results.length >= 1 ? results : dataItems}/>}
             </div>
+            {showProgress && <LinearProgress variant="determinate" value={progress} />}
         </div>
     )
 }

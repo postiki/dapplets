@@ -18,7 +18,9 @@ export default function menu () {
                     <img src={logo}/>
                     <h2>Dapplets Project.</h2>
                 </div>
-                <img src={back}/>
+                <div className='menuIcon'>
+                    {/*<img src={back}/>*/}
+                </div>
             </div>
             <div className='sideIcons'>
                 <div className='active'>
