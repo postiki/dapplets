@@ -1,21 +1,20 @@
 {
   "files": {
-    "main.css": "/dapplets/static/css/main.b69d71e7.chunk.css",
-    "main.js": "/dapplets/static/js/main.db12d9bb.chunk.js",
-    "main.js.map": "/dapplets/static/js/main.db12d9bb.chunk.js.map",
+    "main.css": "/dapplets/static/css/main.4c32a908.chunk.css",
+    "main.js": "/dapplets/static/js/main.c9595d51.chunk.js",
+    "main.js.map": "/dapplets/static/js/main.c9595d51.chunk.js.map",
     "runtime-main.js": "/dapplets/static/js/runtime-main.bede84d0.js",
     "runtime-main.js.map": "/dapplets/static/js/runtime-main.bede84d0.js.map",
-    "static/js/2.2cc56dc3.chunk.js": "/dapplets/static/js/2.2cc56dc3.chunk.js",
-    "static/js/2.2cc56dc3.chunk.js.map": "/dapplets/static/js/2.2cc56dc3.chunk.js.map",
+    "static/js/2.c2a454e3.chunk.js": "/dapplets/static/js/2.c2a454e3.chunk.js",
+    "static/js/2.c2a454e3.chunk.js.map": "/dapplets/static/js/2.c2a454e3.chunk.js.map",
     "index.html": "/dapplets/index.html",
-    "static/css/main.b69d71e7.chunk.css.map": "/dapplets/static/css/main.b69d71e7.chunk.css.map",
-    "static/js/2.2cc56dc3.chunk.js.LICENSE.txt": "/dapplets/static/js/2.2cc56dc3.chunk.js.LICENSE.txt",
+    "static/css/main.4c32a908.chunk.css.map": "/dapplets/static/css/main.4c32a908.chunk.css.map",
+    "static/js/2.c2a454e3.chunk.js.LICENSE.txt": "/dapplets/static/js/2.c2a454e3.chunk.js.LICENSE.txt",
     "static/media/index.scss": "/dapplets/static/media/search.65d99892.svg",
     "static/media/Group 14.6dd0a1f7.svg": "/dapplets/static/media/Group 14.6dd0a1f7.svg",
     "static/media/Logo.b162600e.svg": "/dapplets/static/media/Logo.b162600e.svg",
     "static/media/Vector.f77052b5.svg": "/dapplets/static/media/Vector.f77052b5.svg",
     "static/media/arrow-left.17f80631.svg": "/dapplets/static/media/arrow-left.17f80631.svg",
-    "static/media/arrow-right.841b27e6.svg": "/dapplets/static/media/arrow-right.841b27e6.svg",
     "static/media/carbon_settings-adjust.1dfffe4d.svg": "/dapplets/static/media/carbon_settings-adjust.1dfffe4d.svg",
     "static/media/clarity_cloud-network-line.dddfba07.svg": "/dapplets/static/media/clarity_cloud-network-line.dddfba07.svg",
     "static/media/closeBtnTags.9a146af2.svg": "/dapplets/static/media/closeBtnTags.9a146af2.svg",
@@ -26,8 +25,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.bede84d0.js",
-    "static/js/2.2cc56dc3.chunk.js",
-    "static/css/main.b69d71e7.chunk.css",
-    "static/js/main.db12d9bb.chunk.js"
+    "static/js/2.c2a454e3.chunk.js",
+    "static/css/main.4c32a908.chunk.css",
+    "static/js/main.c9595d51.chunk.js"
   ]
 }
