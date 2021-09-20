@@ -119,7 +119,17 @@ input, select, button
       grid-row: 1/2;
 
       width: 100%;
+      background: none;
     }
+
+    .menuWrapActive{
+      grid-column: 1/2;
+      grid-row: 1/3;
+
+      width: 100%;
+      background: none;
+    }
+
     .dappletsWrap{
       grid-column: 1/2;
       grid-row: 2/3;

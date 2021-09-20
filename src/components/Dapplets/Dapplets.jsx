@@ -43,7 +43,6 @@ export default function Dapplets() {
 
     let scroll = () => {
         let scrollWindow = document.getElementById('100')
-        console.log(scrollWindow.scrollHeight - (scrollWindow.scrollTop + scrollWindow.clientHeight))
 
         if (scrollWindow.scrollHeight - (scrollWindow.scrollTop + scrollWindow.clientHeight) < 100) {
             setFetching(true)
@@ -55,9 +54,6 @@ export default function Dapplets() {
             setShowProgress(true)
             axios.get(`https://dapplets-hiring-api.herokuapp.com/api/v1/dapplets?start=${startPage}&limit=${limitPage}&sort=[{"property": "${sortByType}", "direction": "${sortTo}"}]`, {
                 onDownloadProgress: progressEvent => {
-                    const percentage = Math.round((progressEvent.loaded * 100) / progressEvent.total);
-                    console.log(percentage)
-                    setProgress(percentage)
                     setShowProgress(false)
                 }
             })
@@ -66,7 +62,7 @@ export default function Dapplets() {
                 .then(() => setStartPages(prevState => prevState + 5))
                 .finally(() => setFetching(false))
         }
-    }, [fetching])
+    },[fetching])
 
     useEffect(() => {
         if (debouncedSearchTerm) {
@@ -106,7 +102,7 @@ export default function Dapplets() {
             <div className='items'>
                 {showDataItems && <Item dataItems={results.length >= 1 ? results : dataItems}/>}
             </div>
-            {showProgress && <LinearProgress variant="determinate" value={progress} />}
+            {showProgress && <LinearProgress />}
         </div>
     )
 }

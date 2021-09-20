@@ -7,11 +7,11 @@ export default function Header () {
     return (
         <div className='head'>
             <div className='extensions'>
-                <img src={status} />
+                <img alt='status' src={status} />
                 <h2>Extension state: Active</h2>
             </div>
             <div className='settings'>
-                <img src={setting} />
+                <img alt='setting' src={setting} />
                 <h2>Settings</h2>
             </div>
         </div>

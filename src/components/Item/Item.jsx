@@ -1,9 +1,7 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 
 import btn from "../../icons/Group 14.svg";
 import close from '../../icons/closeBtnTags.svg'
-import buttonBlue from '../../icons/Property 1=Default.svg'
-import buttonGray from '../../icons/InstalledButton.svg'
 
 import './index.scss'
 

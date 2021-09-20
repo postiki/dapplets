@@ -7,7 +7,7 @@ export  default function rightMenu () {
     return(
         <div className='rightMenu'>
             <div className='back'>
-                <img src={arrowLeft}/>
+                <img alt='buttonNav' src={arrowLeft}/>
             </div>
             <div className='dappletsettings'>
                 <div className='settingtitle'>
@@ -33,19 +33,19 @@ export  default function rightMenu () {
                 <div className='tags'>
                     <div className='label'>
                         <h5>Twitter</h5>
-                        <img src={close}/>
+                        <img alt='closeBtn' src={close}/>
                     </div>
                     <div className='label'>
                         <h5>SocialMedia</h5>
-                        <img src={close}/>
+                        <img alt='closeBtn'  src={close}/>
                     </div>
                     <div className='label'>
                         <h5>Top 10</h5>
-                        <img src={close}/>
+                        <img alt='closeBtn'  src={close}/>
                     </div>
                     <div className='label'>
                         <h5>Finances</h5>
-                        <img src={close}/>
+                        <img alt='closeBtn'  src={close}/>
                     </div>
                 </div>
             </div>
@@ -54,19 +54,19 @@ export  default function rightMenu () {
                 <div className='tags'>
                     <div className='label'>
                         <h5>Social</h5>
-                        <img src={close}/>
+                        <img alt='closeBtn'  src={close}/>
                     </div>
                     <div className='label'>
                         <h5>Top 100</h5>
-                        <img src={close}/>
+                        <img alt='closeBtn'  src={close}/>
                     </div>
                     <div className='label'>
                         <h5>Testing</h5>
-                        <img src={close}/>
+                        <img alt='closeBtn'  src={close}/>
                     </div>
                     <div className='label'>
                         <h5>Favourites</h5>
-                        <img src={close}/>
+                        <img alt='closeBtn'  src={close}/>
                     </div>
                 </div>
             </div>

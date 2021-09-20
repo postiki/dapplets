@@ -1,5 +1,4 @@
 import logo from "../../icons/Logo.svg";
-import back from "../../icons/arrow-right.svg";
 import codesandbox from "../../icons/codesandbox.svg";
 import heart from "../../icons/Vector.svg";
 import grid from "../../icons/grid.svg";
@@ -8,39 +7,46 @@ import trend from "../../icons/trending-up.svg";
 import close from "../../icons/closeBtnTags.svg";
 
 import './index.scss'
+import React, {useEffect, useState} from "react";
 
+export default function Menu ({test}) {
 
-export default function menu () {
+    const [showMenu, setShowMenu] = useState(false)
+
+    useEffect(() => {
+        test(!showMenu)
+    }, [showMenu])
+
     return (
         <div className='menu'>
             <div className='logo'>
                 <div className='logoTitle'>
-                    <img src={logo}/>
+                    <img alt='logo'  src={logo}/>
                     <h2>Dapplets Project.</h2>
                 </div>
-                <div className='menuIcon'>
+                <div className='menuIcon' onClick={() => setShowMenu(!showMenu)}>
                     {/*<img src={back}/>*/}
                 </div>
             </div>
-            <div className='sideIcons'>
+            <div className={showMenu ? 'sideIconsActive' : 'sideIcons'}>
                 <div className='active'>
-                    <img src={codesandbox}/>
+                    <img alt='codesandbox'  src={codesandbox}/>
                     <h2>All Dapplets</h2>
                 </div>
                 <div>
-                    <img src={heart}/>
+                    <img alt='heart'  src={heart}/>
                     <h2>Editor’s Choice</h2>
                 </div>
                 <div>
-                    <img src={grid}/>
+                    <img alt='grid'  src={grid}/>
                     <h2>Essential Dapplets</h2>
                 </div>
                 <div>
-                    <img src={social}/>
+                    <img alt='social' src={social}/>
                     <h2>Social Networks</h2>
                 </div>
                 <div>
-                    <img src={trend}/>
+                    <img alt='trend' src={trend}/>
                     <h2>Financial Dapplets</h2>
                 </div>
             </div>
@@ -55,31 +61,31 @@ export default function menu () {
                 <div className='tags'>
                     <div className='label'>
                         <h5>Twitter</h5>
-                        <img src={close}/>
+                        <img alt='closeBtn' src={close}/>
                     </div>
                     <div className='label'>
                         <h5>SocialMedia</h5>
-                        <img src={close}/>
+                        <img alt='closeBtn' src={close}/>
                     </div>
                     <div className='label'>
                         <h5>Top 10</h5>
-                        <img src={close}/>
+                        <img alt='closeBtn' src={close}/>
                     </div>
                     <div className='label'>
                         <h5>Finances</h5>
-                        <img src={close}/>
+                        <img alt='closeBtn' src={close}/>
                     </div>
                     <div className='label'>
                         <h5>Media</h5>
-                        <img src={close}/>
+                        <img alt='closeBtn' src={close}/>
                     </div>
                     <div className='label'>
                         <h5>Test</h5>
-                        <img src={close}/>
+                        <img alt='closeBtn' src={close}/>
                     </div>
                     <div className='label'>
                         <h5>ToDo</h5>
-                        <img src={close}/>
+                        <img alt='closeBtn' src={close}/>
                     </div>
                 </div>
             </div>
