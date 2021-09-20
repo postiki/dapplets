@@ -131,7 +131,6 @@
       width: 100%;
       height: 100vh;
 
-      margin-top: 10px;
       padding-bottom: 35px;
       border-bottom: 1px solid white;
 
@@ -150,9 +149,15 @@
       div{
         display: flex;
         align-items: center;
-        gap: 10px;
 
         height: 54px;
+
+        justify-content: flex-end;
+
+        gap: 10px;
+
+        padding-right: 20px;
+
       }
     }
     .myLists{
