@@ -43,6 +43,7 @@ export default function Dapplets() {
 
     let scroll = () => {
         let scrollWindow = document.getElementById('100')
+        console.log(scrollWindow.scrollHeight - (scrollWindow.scrollTop + scrollWindow.clientHeight))
 
         if (scrollWindow.scrollHeight - (scrollWindow.scrollTop + scrollWindow.clientHeight) < 100) {
             setFetching(true)
