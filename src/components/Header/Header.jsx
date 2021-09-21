@@ -11,7 +11,7 @@ export default function Header () {
                 <h2>Extension state: Active</h2>
             </div>
             <div className='settings'>
-                <img alt='setting' src={setting} />
+                <img alt='setting' src={setting}/>
                 <h2>Settings</h2>
             </div>
         </div>
