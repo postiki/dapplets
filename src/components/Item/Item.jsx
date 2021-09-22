@@ -9,8 +9,6 @@ export default function Item({dataItems}) {
 
     const [statementB, setStatementB] = useState('')
 
-    const [currentItem, setCurrentItem] = useState(null)
-
     const [data, setData] = useState([])
 
     let tag = [
@@ -61,51 +59,10 @@ export default function Item({dataItems}) {
         setData(dataItems)
     }, [dataItems])
 
-    function dragStartHandler(e, items) {
-        console.log(items, 'drag')
-        setCurrentItem(items)
-    }
-    function dragEndHandler(e) {
-        e.target.style.border = 'none'
-    }
-    function dragOverHandler(e) {
-        e.preventDefault()
-        e.target.style.border = '1px solid red'
-    }
-    function dropHandler(e, items) {
-        e.preventDefault()
-        console.log(items, 'drop')
-        setCurrentItem(data.map(i => {
-            if (i.id === items.id) {
-                return {...i, order: currentItem.order}
-            }
-            if (i.id === currentItem.id) {
-                return {...i, order: items.order}
-            }
-            return i
-        }))
-        e.target.style.border = 'none'
-    }
-
-    let sortItem = (a, b) => {
-        if (a.order > b.order) {
-            return 1
-        } else {
-            return -1
-        }
-    }
-
     return (
-        data.sort(sortItem).map((items, index) => {
+        data.map((items, index) => {
             return (
-                <div
-                    onDragStart={(e) => dragStartHandler(e, items)}
-                    onDragEnd={(e) => dragEndHandler(e)}
-                    onDragLeave={(e) => dragEndHandler(e)}
-                    onDragOver={(e) => dragOverHandler(e)}
-                    onDrop={(e) => dropHandler(e, items)}
-                    draggable={true}
-                    className='item' key={index} >
+                <div className='item' key={index} >
                     <img className='drag-btn' alt='drag-btn' src={btn} />
                     <img className='icon' alt='icons'
                          src={' https://dapplets-hiring-api.herokuapp.com/api/v1/files/' + items.icon}/>
@@ -120,7 +77,7 @@ export default function Item({dataItems}) {
                             return (
                                 <div className='label' key={index}>
                                     <h5>{tag.filter(o => o.id.includes(props))[0]?.name}</h5>
-                                    <img src={close}/>
+                                    <img alt='closeBtn' src={close}/>
                                 </div>
                             )
                         })}
